@@ -1,0 +1,33 @@
+.form-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .form-input {
+    width: 50%;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .form-list {
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+  }
+  
+  .list-todo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .title-list {
+    cursor: pointer;
+  }
+  .completed{
+    text-decoration: line-through;
+  }

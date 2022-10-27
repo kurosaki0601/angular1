@@ -1,1 +1,71 @@
-<p>main works!</p>
+<!-- <input type="text" [(ngModel)]="name" (blur)="onblur(name)" />
+<p>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolorum
+  corporis, veniam ipsum consequatur fugit, sapiente porro sequi ad rem,
+  excepturi facilis et magni asperiores maiores laboriosam laudantium? Suscipit,
+  ratione!
+</p>
+<a [href]="googleURL" target="_blank">Go to Google</a>
+
+<h2>Counter: {{ counter }}</h2>
+
+<button class="btn btn-primary mr-2" (click)="btnMinus()">-</button>
+<button class="btn btn-warning" (click)="btnIncrease($event)">+</button> -->
+
+<form (submit)="addTodoList()">
+  <h2 class="mt-5 text-center">To Do List</h2>
+  <div class="form-container">
+    <div class="form-input">
+      <div class="form-group">
+        <label for="task">Task</label>
+        <!-- #todoList use template variable -->
+        <!-- <input
+          type="text"
+          class="form-control"
+          id="title"
+          #todoList
+          [(ngModel)]="newTodo"
+          (keyup.enter)="addTodoList(todoList)"
+          name="title"
+          placeholder="Input Title"
+        />
+      </div>
+      <button
+        type="submit"
+        (click)="addTodoList(newTodo)"
+        class="btn btn-primary"
+      >
+        Submit
+      </button> -->
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="newTodo"
+          name="title"
+          placeholder="Input Title"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="form-list">
+      <ul class="list-group" *ngIf="todos.length > 0">
+        <li
+          class="list-group-item list-todo"
+          *ngFor="let todo of todos; let i = index"
+        >
+          <span
+            class="title-list"
+            [class.completed]="todo.completed"
+            (click)="checkTatus(todo.completed, i)"
+            >{{ i + 1 }}. {{ todo.title }}</span
+          >
+          <button class="btn btn-danger mr-2" (click)="deletedTodoList(i)">
+            DELETE
+          </button>
+        </li>
+      </ul>
+      <p class="text-center" *ngIf="todos.length === 0">No todos</p>
+    </div>
+  </div>
+</form>
