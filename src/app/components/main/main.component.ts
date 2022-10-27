@@ -13,6 +13,9 @@ export class MainComponent implements OnInit {
 
   todos: Todo[] = [];
 
+  today: Date = new Date();
+
+  price: number = 9.99;
   constructor(private todoService: TodoService) {
     todoService.getAllTodos().subscribe((res: Todo[]) => {
       this.todos = res;
