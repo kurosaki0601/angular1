@@ -25,4 +25,7 @@ export class TodoService {
   addNewTodo(todo) {
     return this.http.post(this.baseURL + '/todos', todo);
   }
+  getTodos(id) {
+    return this.http.get(this.baseURL + '/todos/' + id);
+  }
 }

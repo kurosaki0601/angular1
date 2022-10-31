@@ -10,6 +10,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
     MainComponent,
     FooterComponent,
     HomeComponent,
+    TodoDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { HomeComponent } from './components/home/home.component';
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: 'home',
         pathMatch: 'full',
       },
       {
@@ -36,6 +40,14 @@ import { HomeComponent } from './components/home/home.component';
       {
         path: 'todos',
         component: MainComponent,
+      },
+      {
+        path: 'todos/:id',
+        component: TodoDetailComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
       },
     ]),
   ],

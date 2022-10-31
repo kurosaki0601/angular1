@@ -61,9 +61,17 @@
             (click)="checkTatus(todo.completed, i)"
             >{{ i + 1 }}. {{ todo.title }}</span
           >
-          <button class="btn btn-danger mr-2" (click)="deletedTodoList(i)">
-            DELETE
-          </button>
+          <span>
+            <button
+              class="btn btn-info mr-3"
+              [routerLink]="['/todos', todo.id]"
+            >
+              Show detail
+            </button>
+            <button class="btn btn-danger mr-2" (click)="deletedTodoList(i)">
+              DELETE
+            </button>
+          </span>
         </li>
       </ul>
       <p class="text-center" *ngIf="todos.length === 0">No todos</p>
