@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   user = {
-    email: '',
-    password: '',
+    email: 'eve.holt@reqres.in',
+    password: 'cityslicka',
   };
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
+  isInvalid: boolean = false;
 
   ngOnInit(): void {}
   login() {
-    console.log(this.user);
+    this.authService.login(this.user).subscribe(
+      (res: any) => {
+        this.router.navigate(['/home']);
+        localStorage.setItem('token', res.token);
+      },
+      (err) => {
+        this.isInvalid = true;
+      }
+    );
   }
 }

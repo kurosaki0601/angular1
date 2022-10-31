@@ -24,6 +24,7 @@
       id="exampleInputPassword1"
     />
   </div>
+  <div *ngIf="isInvalid" class="alert alert-danger">sai tk mk</div>
 
   <button type="submit" (click)="login()" class="btn btn-primary">
     Submit
